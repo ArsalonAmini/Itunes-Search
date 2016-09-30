@@ -2,28 +2,29 @@
 //devCodeCamp 2016 Week #9 AjAX, API, JSON
 
 $(document).ready(function(){
-getItunesData(); //calls getItunesMethod
+
 $( "#userSearch" ).click(getUserInput); //jQuery html element "Userinput" run "getUserInput" function on "click"
 });
 
 function getUserInput(){
   var userInput = $('#search').val(); //userinput equals html element search input value
   console.log(userInput);
-  return userInput;
+  return formatURL(userInput);
 };
 
 function formatURL(userInput){
-  var artistFirstName = userInput.Parse("");
-  var artistLastName = userInput.Parse("");
+  var index = userInput.indexOf(' '); //userInput.split("")
+  var artistFirstName = userInput.slice(0,index).trim();
+  var artistLastName = userInput.slice(index + 1, userInput.length).trim();
   var api = 'https://itunes.apple.com/search?term='
   var url = api + artistFirstName + "+" + artistLastName;
-  return url;
+  return getItunesData(url);
 }
 
 function getItunesData(url){
 $.ajax({
   type: 'GET',
-  url: 'url'
+  url: "url",
   dataType: 'JSONP'
 })
 .done(function(data) {console.log(data);}) //runs function after data is returned console.log

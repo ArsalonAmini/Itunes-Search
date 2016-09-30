@@ -9,7 +9,14 @@ $(document).ready(function(){
 });
 
 
-
+// function formatURL(userInput){
+//   var index = userInput.indexOf(""); //userInput.split("")
+//   var artistFirstName = userInput.substr(0,index);
+//   var artistLastName = userInput.substr(index + 1);
+//   var api = 'https://itunes.apple.com/search?term='
+//   var url = api + artistFirstName + "+" + artistLastName;
+//   return url;
+// }
 
 //     var artistFirstLastName = $('#search').value;
 //
