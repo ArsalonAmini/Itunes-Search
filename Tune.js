@@ -9,7 +9,7 @@ $( "#userSearch" ).click(getUserInput); //jQuery html element "Userinput" run "g
 function getUserInput(){
   var userInput = $('#search').val(); //userinput equals html element search input value
   console.log(userInput);
-  return formatURL(userInput);
+  formatURL(userInput);
 };
 
 function formatURL(userInput){
@@ -18,13 +18,21 @@ function formatURL(userInput){
   var artistLastName = userInput.slice(index + 1, userInput.length).trim();
   var api = 'https://itunes.apple.com/search?term='
   var url = api + artistFirstName + "+" + artistLastName;
-  return getItunesData(url);
+  getItunesData(url);
 }
+// function getItunesData(url){
+//   $.getJSON(url);
+//   .done(function(data) {console.log(data);});
+//   .fail(function(data){console.log(data)});
+// }
+
+
+
 
 function getItunesData(url){
 $.ajax({
   type: 'GET',
-  url: "url",
+  url: url,
   dataType: 'JSONP'
 })
 .done(function(data) {console.log(data);}) //runs function after data is returned console.log
