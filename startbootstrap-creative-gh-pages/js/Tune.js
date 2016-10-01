@@ -33,8 +33,8 @@ $.ajax({
 };
 
 function displayItunesData(data){
-  for (i = 0; i<data.results.length; i++)
+  for (var item in data)
   {
-    console.log(data.results[i].trackName);
+    console.log(Object.results[i].trackName);
   }
 }
